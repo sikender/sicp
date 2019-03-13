@@ -37,3 +37,9 @@
 - `(define size 2)` causes the interpreter to associate the value 2 with the name size. We can then refer the value 2 by name `size`.
 
 - The possibility of associating values with symbols and later retrieving them means that the interpreter must maintain some sort of memory that keeps track if the name-object pairs. This memory is called the _environment_.
+
+## 1.1.3 Evaluating Combinations
+
+- Recursion is a very powerful technique for dealing with hierarchical, treelike objects.
+
+- The environment provides a context in which evaluation takes place and plays an important role in our understanding of program execution.
