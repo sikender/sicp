@@ -43,3 +43,18 @@
 - Recursion is a very powerful technique for dealing with hierarchical, treelike objects.
 
 - The environment provides a context in which evaluation takes place and plays an important role in our understanding of program execution.
+
+## 1.1.4 Compound Procedures
+
+- _Procedure Definitions_ are a much more powerful abstraction technique by which a compound operation can be given a name and then referred to as a unit.
+
+- The general form of a procedure definition is:
+  `(define ((name) (formal parameters)) (body))`
+
+- The `(name)` is a symbol to be associated with the procedure definition in the environment.
+
+- The `(formal parameters)` are the names used within the body of the procedure to refer to the corresponding arguments of the procedure.
+
+- The `(body)` is an expression that will yield the value of the procedure application when the formal parameters are replaces by actual arguments to which the procedure is applied.
+
+- Procedures can be used as building blocks in defining other procedures.
