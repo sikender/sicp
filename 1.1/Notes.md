@@ -58,3 +58,21 @@
 - The `(body)` is an expression that will yield the value of the procedure application when the formal parameters are replaces by actual arguments to which the procedure is applied.
 
 - Procedures can be used as building blocks in defining other procedures.
+
+## 1.1.4 The Substitution Model for Procedure Application
+
+- The mechanism for applying primitive procedures to arguments is built into the interpreter.
+
+- The application process for compound procedures is: evaluate the body of the procedure with each formal parameter replaced by the corresponding argument. This process is called the _substitution model_ for procedure application.
+
+### Applicative order versus normal order
+
+- The interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments.
+
+- An alternative evaluation model would not evaluate the operands until their values were needed. Instead the interpreter would first substitute operand expressions for parameters until it obtains an expression involving only primitive operators, and would then perform the evaluation.
+
+- This alternative "fully expand and then reduce" evaluation method is known as _normal-order evaluation_.
+
+- The interpreter actually uses the "evaluate the arguments and then apply" method which is called _applicative-order evaluation_.
+
+- For procedure applications that can be modeled using substitution and that yield legitimate values, normal-order and applicative-order evaluation produce the same value.
