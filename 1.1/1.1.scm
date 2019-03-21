@@ -49,3 +49,39 @@ circumference
 (define (f a) 
       (sum-of-squares (+ a 1) (* a 2)))
 (f 5)
+
+(define (abs x)
+      (cond ((> x 0) x)
+            ((= x 0) 0)
+            ((< x 0) (- x))
+      )
+)
+
+(abs 5)
+(abs 0)
+(abs -5)
+
+(define (abs2 x) 
+      (cond ((< x 0) (- x)) 
+            (else x)))
+
+(abs2 5)
+(abs2 0)
+(abs2 -5)
+
+(define (abs3 x)
+      (if (< x 0)
+          (- x)
+          x))
+
+(abs3 5)
+(abs3 0)
+(abs3 -5)
+
+(define z 9)
+(and (> z 5) (< z 10))
+
+(define (>= x y) (or (> x y) (= x y)))
+(>= 10  5)
+(>= 10 10)
+(>= 5 10)

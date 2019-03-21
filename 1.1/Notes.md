@@ -59,7 +59,7 @@
 
 - Procedures can be used as building blocks in defining other procedures.
 
-## 1.1.4 The Substitution Model for Procedure Application
+## 1.1.5 The Substitution Model for Procedure Application
 
 - The mechanism for applying primitive procedures to arguments is built into the interpreter.
 
@@ -76,3 +76,68 @@
 - The interpreter actually uses the "evaluate the arguments and then apply" method which is called _applicative-order evaluation_.
 
 - For procedure applications that can be modeled using substitution and that yield legitimate values, normal-order and applicative-order evaluation produce the same value.
+
+## 1.1.6 Conditional Expressions and Predicates
+
+- _Case Analysis_ is a contruct used to take different actions in different cases according to some rules.
+
+- There is a special form in Lisp for notating such a case analysis. It is called `cond` (which stands for conditional).
+
+- The general form of a conditional expression is:
+
+  ```scheme
+    (cond ((p1) (e1))
+          ((p2) (e2))
+          ...
+          ((pn) (en))
+    )
+  ```
+
+  consisting of the symbol `cond` followed by parenthesized pairs of expressions `((p) (e))` called _clauses_.
+
+- The first expression in each pair is a _predicate_ - thats is, an expression whose value is interpreted as either true or false.
+
+- Conditional expressions are evaluated as follows: The predicate (p1) is evaluated first. If its value is false, then (p2) is evaluated. If (p2)'s value is also false, then (p3) is evaluated. This process continues until a predicate is found whose value is true, in which case the interpreter returns the value of the corresponding _consequent expression_ (e) of the clause as the value of the corresponding expression. If none of the (p)'s is found to be true, the value of the `cond` is undefined.
+
+- The word _predicate_ is used for procedures that return true or false, as well as for expressions that evaluate to true or false.
+
+- Primitive predicates >, <, and = take two arguments and test whether the first number is, respectively, greater than, less than, or equal to the second number, returning true or false accordinly.
+
+- Another way to write a conditional expression is:
+
+  ```scheme
+    (define (abs x)
+      (cond ((< x 0) (- x))
+            (else x)))
+  ```
+
+  which can be read as "If x is less than zero return -x; otherwise return x".
+
+- `else` is a special symbol that can be used in place of the (p) in the final clause of a `cond`. This causes the `cond` to return as its value the value of the corresponding (e) whenever all previous clauses have been bypassed.
+
+- Another way to write the absolute-value procedure is:
+  ```scheme
+    (define (abs3 x)
+      (if (< x 0)
+          (- x)
+          x))
+  ```
+- This uses the special form `if`, a restricted type of conditional that can be used when there are precisely two cases in the case analysis. The general form of an `if` expression is:
+  `(if (predicate) (consequent) (alternative))`
+
+- The interpreter starts by evaluating the (predicate) part of the expression. If the (predicate) evaluates to a true value, the interpreter then evaluates the (consequent) and returns its value. Otherwise its evaluates the (alternative) and returns its value.
+
+- Logical compound operations allow us to construct compound predicates. The three most frequently used are:
+
+  - `(and (e1) ... (en))`
+    The interpreter evaluates the expressions (e) one at a time, in left-to-right order. If any (e) evaluates to false, the value of the `and` expression is false, and the rest of the (e)'s are not evaluated. If all (e)'s evaluate to true values, the value of the `and` expression is the value of the last one.
+  - `(or (e2) ... (en))`
+    The interpreter evaluates the expressions (e) one at a time, in left-to-right order. If any (e) evaluates to true value, that value is returned as the value if the `or` expression, and the rest of the (e)'s are not evaluated. If all (e)'s evaluate to false, the value of the `or` expression is false.
+  - `(not (e))`
+    The value of a `not` expression is true when the expression (e) evaluates to false, and false otherwise.
+
+- `and` and `or` are special forms, not procedures, because the subexpressions are not necessarily all evaluated.
+
+- `not` is an ordinary procedure.
+
+
