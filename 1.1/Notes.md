@@ -8,7 +8,7 @@
 
 - Data is what we want to manipulate, and procedures are descriptions of the rules for manipulating the data.
 
-- Any powerful language should be able to describe primitive data primitive procedures and should have methods for combining and abstracting procedures and data.
+- Any powerful language should be able to describe primitive data and primitive procedures and should have methods for combining and abstracting procedures and data.
 
 ## 1.1.1 Expressions
 
@@ -139,5 +139,3 @@
 - `and` and `or` are special forms, not procedures, because the subexpressions are not necessarily all evaluated.
 
 - `not` is an ordinary procedure.
-
-
