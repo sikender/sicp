@@ -12,7 +12,7 @@
 
 ## 1.1.1 Expressions
 
-- When you type an expression, the interpreter responds by displaying the result of its evaluating that expression.
+- When you type an expression, the interpreter responds by displaying the result of its evaluation of that expression.
 
 - Expressions representing numbers may be combined with an expression representing a primitive procedure (such as + or \*) to form a compound expression that represents the application of the procedure to those numbers.
 
@@ -55,7 +55,7 @@
 
 - The `(formal parameters)` are the names used within the body of the procedure to refer to the corresponding arguments of the procedure.
 
-- The `(body)` is an expression that will yield the value of the procedure application when the formal parameters are replaces by actual arguments to which the procedure is applied.
+- The `(body)` is an expression that will yield the value of the procedure application when the formal parameters are replaced by actual arguments to which the procedure is applied.
 
 - Procedures can be used as building blocks in defining other procedures.
 
@@ -132,7 +132,7 @@
   - `(and (e1) ... (en))`
     The interpreter evaluates the expressions (e) one at a time, in left-to-right order. If any (e) evaluates to false, the value of the `and` expression is false, and the rest of the (e)'s are not evaluated. If all (e)'s evaluate to true values, the value of the `and` expression is the value of the last one.
   - `(or (e2) ... (en))`
-    The interpreter evaluates the expressions (e) one at a time, in left-to-right order. If any (e) evaluates to true value, that value is returned as the value if the `or` expression, and the rest of the (e)'s are not evaluated. If all (e)'s evaluate to false, the value of the `or` expression is false.
+    The interpreter evaluates the expressions (e) one at a time, in left-to-right order. If any (e) evaluates to true value, that value is returned as the value of the `or` expression, and the rest of the (e)'s are not evaluated. If all (e)'s evaluate to false, the value of the `or` expression is false.
   - `(not (e))`
     The value of a `not` expression is true when the expression (e) evaluates to false, and false otherwise.
 
